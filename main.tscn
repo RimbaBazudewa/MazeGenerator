@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tiles/map.tres" type="TileSet" id=1]
+[ext_resource path="res://maze_generator_custom.gd" type="Script" id=2]
+[ext_resource path="res://Button.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/CostaRica.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = SubResource( 1 )
+
+[node name="main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+script = ExtResource( 2 )
+tile_count_x = 5
+tile_count_y = 5
+size_hole = Vector2( 3, 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 3, 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -172.0
+margin_top = -166.0
+margin_right = 172.0
+margin_bottom = -58.0
+custom_fonts/font = SubResource( 2 )
+text = "Regenerate"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
